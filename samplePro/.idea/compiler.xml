@@ -6,13 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="samplePro" />
-        <module name="technosoftProject" />
+        <module name="technosoft" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="samplePro" target="1.5" />
-      <module name="technosoftProject" target="1.5" />
+      <module name="technosoft" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

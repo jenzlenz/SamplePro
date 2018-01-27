@@ -43,6 +43,8 @@ public class BasePage {
             System.out.println("Screenshot taken.");
             Assert.fail("element is not found with this locator" +locator.toString());
         }
+
+        return false;
     }
 
     public boolean isLocatorEnabled(By locator) {
@@ -53,6 +55,8 @@ public class BasePage {
             System.out.println("Screenshot taken.");
             Assert.fail("element is not found with this locator" +locator.toString());
         }
+
+        return false;
     }
 
     public boolean isLocatorSelected(By locator) {
@@ -63,6 +67,8 @@ public class BasePage {
             System.out.println("Screenshot taken.");
             Assert.fail("element is not found with this locator" +locator.toString());
         }
+
+        return false;
     }
 
 }
