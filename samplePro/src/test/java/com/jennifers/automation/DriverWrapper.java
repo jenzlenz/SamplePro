@@ -9,8 +9,13 @@ import org.testng.annotations.*;
 public class DriverWrapper {
 
     private static WebDriver driver = null;
-    protected static String url = "https://www.facebook.com/";
-    protected static String pageTitle = "Facebook - Log In or Sign Up";
+    private static final String url = "https://www.facebook.com/";
+    private static String pageTitle = "Facebook - Log In or Sign Up";
+    private static final String calendar = "https://www.hotels.com/";
+    private static final String autoComplete = "https://www.expedia.com/";
+    private static final String mouseOver = "https://dhtmlx.com/";
+
+
 
     public static WebDriver getDriver(){
         return driver;
@@ -20,7 +25,9 @@ public class DriverWrapper {
     public void initializeWebDriver() {
         System.setProperty("webdriver.chrome.driver", "/Users/jenniferdooley/Downloads/TechnosoftProjectDownloads/chromedriver");
         driver = new ChromeDriver();
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(url);
+        //driver.get(autocomplete);
 
 //        System.setProperty("webdriver.safari.driver", "/Users/jenniferdooley/Downloads/TechnosoftProjectDownloads/safaridriver");
 //        driver = new SafariDriver();
@@ -33,6 +40,8 @@ public class DriverWrapper {
 
     @AfterClass
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.manage().deleteAllCookies();
+            driver.quit();
     }
 }

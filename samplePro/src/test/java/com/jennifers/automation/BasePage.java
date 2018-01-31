@@ -41,13 +41,13 @@ public class BasePage {
     }
 
     public String getTextFromElement(By locator) {
-        //try {
+        try {
             return DriverWrapper.getDriver().findElement(locator).getText();
-        //} catch (NoSuchElementException e) {
-        //    e.printStackTrace();
-        //    System.out.println("Screenshot taken.");
-        //Assert.fail("element is not found with this locator" +locator.toString());
-        //}
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            System.out.println("Screenshot taken.");
+        Assert.fail("element is not found with this locator" +locator.toString());
+        }
     }
 
     public boolean isLocatorDisplayed(By locator) {
@@ -113,22 +113,59 @@ public class BasePage {
     }
 
     public void switchFromRootToNewWindow() {
-
+        List<String> listOfWindows = new ArrayList<~>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(listOfWindows.get(index));
     }
 
     public void switchBackToRootWindow() {
+        List<String> listOfWindows = new ArrayList<~>(getDriver().getWindowHandles());
+
+        for(int i = 1; i < listOfWindows.size(); i++){
+            getDriver().switchTo().window(listOfWindows.get(i));
+            getDriver().close();
+        }
+        getDriver().switchTo().window(listOfWindows.get(0));
 
     }
 
-    public void mouseOver() {
-
+    public void mouseOver(String hoverOnThis, String whileHoveringClickOnThis) {
+        WebElement element = getDriver().findElement(By.linkText(hoverOnThis));
+        Actions action = new Actions(getDriver());
+        action.moveToElement(element).build().perform();
+        Thread.sleep(2000);
+        getDriver().findElement(By.linkText(whileHoveringClickOnThis)).click();
+        Thread.sleep(2000);
     }
 
-    public void handleAutoComplete() {
-
+    public void handleAutoComplete(String locator, String locator2, String inputValue, String valueToFind) {
+        getDriver().findElement(By.xpath(locator)).click();
+        getDriver().findElement(By.xpath(locator)).sendKeys(inputValue);
+        Thread.sleep(3000);
+        List<WebElement> list = getDriver().findElements(By.className(locator2));
+        for )WebElement ele : list) {
+            if(ele.getText().contains(valueToFind)) {
+                ele.click();
+                Thread.sleep(3000);
+                break;
+            }
+        }
     }
 
-    public void handleAlerts() {
+    public void acceptAlert() {
+        getDriver().switchTo().alert().accept();
+        Thread.sleep(2000);
+
+    public void dismissAlert() {
+        getDriver().switchTo().alert().dismiss();
+        Thread.sleep(2000);
+
+    public void getTextFromAlert() {
+        getDriver().switchTo().alert().getText();
+        Thread.sleep(2000);
+
+    public void sendKeysToAlert() {
+        getDriver().switchTo().alert().sendKeys(String someText);
+        Thread.sleep(2000);
 
     }
 }
