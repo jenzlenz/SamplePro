@@ -35,8 +35,8 @@ public class verifyGenderRequiredForRegistration extends DriverWrapper {
         facebookLandingPage.enterNewPassword("myPass1234");
         //getDriver().findElement(By.name("reg_passwd__")).sendKeys("myPass1234");
         //Select birthday
-        facebookLandingPage.selectBirthdayMonth("May");
-        facebookLandingPage.selectBirthdayDay("6");
+        facebookLandingPage.selectBirthdayMonth(6);
+        facebookLandingPage.selectBirthdayDay(7);
         facebookLandingPage.selectBirthdayYear("1976");
         //Click on Create Account button
         facebookLandingPage.clickCreateAccountButton();
@@ -44,7 +44,7 @@ public class verifyGenderRequiredForRegistration extends DriverWrapper {
 
         //Assert the missing gender selection error message is displayed as follows:
         //"Please choose a gender.  You can change who can see this later."
-        boolean isGenderErrorDisplayed = getDriver().findElement(By.id("js_bc")).isDisplayed();
+        boolean isGenderErrorDisplayed = getDriver().findElement(By.xpath("//*[@id=\'js_1r\']")).isDisplayed();
         Assert.assertEquals(isGenderErrorDisplayed, true, "No error message for missing gender selection.");
         //
 

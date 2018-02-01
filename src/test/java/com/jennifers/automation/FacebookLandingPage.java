@@ -12,16 +12,16 @@ public class FacebookLandingPage extends BasePage {
     private By emailTextField = By.id("email");
     private By passTextField = By.id("pass");
     private By loginButton = By.id("loginbutton");
-    private By firstNameTextField = By.id("u_0_l");
-    private By lastNameTextField = By.id("u_0_m");
-    private By mobileNumberTextField = By.id("u_0_q");
-    private By newPasswordTextField = By.id("u_0_x");
-    private By birthdayMonthDropdown = By.name("month");
-    private By birthdayDayDropdown = By.name("day");
-    private By birthdayYearDropdown = By.name("year");
+    private By firstNameTextField = By.name("firstname");
+    private By lastNameTextField = By.name("lastname");
+    private By mobileNumberTextField = By.name("reg_email__");
+    private By newPasswordTextField = By.name("reg_passwd__");
+    private By birthdayMonthDropdown = By.name("birthday_month");
+    private By birthdayDayDropdown = By.name("birthday_day");
+    private By birthdayYearDropdown = By.name("birthday_year");
     private By femaleRadioButton = By.id("u_0_b");
     private By maleRadioButton = By.id("u_0_c");
-    private By createAccountButton = By.id("u_0_13");
+    private By createAccountButton = By.name("websubmit");
     //private By signUpButton = By.linkText("Sign Up for Facebook");
 
     //Methods
@@ -51,9 +51,15 @@ public class FacebookLandingPage extends BasePage {
 
     public void selectBirthdayMonth(String monthToSelect) { selectFromDropdown(birthdayMonthDropdown, monthToSelect); }
 
+    public void selectBirthdayMonth(int monthToSelect) { selectFromDropdown(birthdayMonthDropdown, monthToSelect); }
+
     public void selectBirthdayDay(String dayToSelect) { selectFromDropdown(birthdayDayDropdown, dayToSelect); }
 
+    public void selectBirthdayDay(int dayToSelect) { selectFromDropdown(birthdayDayDropdown, dayToSelect); }
+
     public void selectBirthdayYear(String yearToSelect) { selectFromDropdown(birthdayYearDropdown, yearToSelect); }
+
+    public void selectBirthdayYear(int yearToSelect) { selectFromDropdown(birthdayYearDropdown, yearToSelect); }
 
     public void clickCreateAccountButton() {clickOn(createAccountButton); }
 

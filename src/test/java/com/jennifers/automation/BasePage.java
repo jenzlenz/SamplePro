@@ -86,12 +86,14 @@ public class BasePage {
     public void selectFromDropdown(By locator, int index) {
         //select from a dropdown by numeric index value
         Select dropdown = new Select(getDriver().findElement(locator));
+        clickOn(locator);
         dropdown.selectByIndex(index);
     }
     public void selectFromDropdown(By locator, String textValue)  {
         //select from a dropdown by a text value
         Select dropdown = new Select(getDriver().findElement(locator));
-        dropdown.selectByVisibleText(textValue);
+        clickOn(locator);
+        dropdown.selectByValue(textValue);
     }
 
     public void selectValueFromCalendar(By locator, String dateToSelect) throws Exception {
