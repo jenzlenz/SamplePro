@@ -9,8 +9,8 @@ import org.testng.annotations.*;
 public class DriverWrapper {
 
     private static WebDriver driver = null;
-    private static final String url = "https://www.facebook.com/";
-    public static final String pageTitle = "Facebook - Log In or Sign Up";
+    protected static final String url = "https://www.facebook.com/";
+    protected static final String pageTitle = "Facebook - Log In or Sign Up";
     private static final String calendar = "https://www.hotels.com/";
     private static final String autoComplete = "https://www.expedia.com/";
     private static final String mouseOver = "https://dhtmlx.com/";
@@ -34,7 +34,7 @@ public class DriverWrapper {
 //
 //        System.setProperty("webdriver.firefox.driver", "/Users/jenniferdooley/Downloads/TechnosoftProjectDownloads/firefoxdriver");
 //        driver = new FirefoxDriver();
-        driver.navigate().to(url);
+//        driver.navigate().to(url);
     }
 
     @AfterClass

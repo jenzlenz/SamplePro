@@ -35,8 +35,8 @@ public class verifyGenderRequiredForRegistration extends DriverWrapper {
         facebookLandingPage.enterNewPassword("myPass1234");
         //getDriver().findElement(By.name("reg_passwd__")).sendKeys("myPass1234");
         //Select birthday
-        facebookLandingPage.selectBirthdayMonth(6);
-        facebookLandingPage.selectBirthdayDay(7);
+        facebookLandingPage.selectBirthdayMonth(5);
+        facebookLandingPage.selectBirthdayDay(6);
         facebookLandingPage.selectBirthdayYear("1976");
         //Click on Create Account button
         facebookLandingPage.clickCreateAccountButton();

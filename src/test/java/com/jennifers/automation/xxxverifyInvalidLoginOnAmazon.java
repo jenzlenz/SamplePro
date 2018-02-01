@@ -20,7 +20,7 @@ We cannot find an account with that email address"
 
     @Test
     //1. Goto Amazon.com
-            // driver.navigateto("https://www.amazon.com");
+    driver.get("https://www.amazon.com");
     //2. Hover over hello sign in header
     WebElement element = getDriver().findElement(By.class("#nav-line-1"));
     Actions action = new Actions(getDriver());
@@ -35,7 +35,7 @@ We cannot find an account with that email address"
     setValueToInputField(email, emailTextField);
 }
     //5. Enter invalid password
-            (By.ById = "app-password")
+    (By.ById = "app-password")
     //6. Verify error message "There was a problem
     //   We cannot find an account with that email address"
     Assert.ByClassName = "a-alert-heading"); // There was a problem
