@@ -11,34 +11,25 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class xxxverifyINVALIDMobileNumber extends DriverWrapper {
+public class verifyInvalidMobileNumber extends DriverWrapper {
     @Test
-    public void verifyInvalidMobileNumber() {
+    public void verifyInvalidMobileNum() {
 
         FacebookLandingPage facebookLandingPage = new FacebookLandingPage();
-
-        //Enter first name
+        //Populate all fields, but mobile number is an invalid entry
         facebookLandingPage.enterFirstName("Jennifer");
-        //getDriver().findElement(By.name("firstname")).sendKeys("Jennifer");
-        //Enter last name
         facebookLandingPage.enterLastName("Dooley");
-        //getDriver().findElement(By.name("lastname")).sendKeys("Dooley");
-        //Enter Mobile Number
         facebookLandingPage.enterMobileNumber("111aaa333");
-        //getDriver().findElement(By.name("reg_mail__")).sendKeys("1112223333");
-        //Enter Password
         facebookLandingPage.enterNewPassword("myPass1234");
-        //getDriver().findElement(By.name("reg_passwd__")).sendKeys("myPass1234");
-        //Select birthday
         facebookLandingPage.selectBirthdayMonth(5);
         facebookLandingPage.selectBirthdayDay(6);
         facebookLandingPage.selectBirthdayYear("1976");
-        //Click on Create Account button
+        facebookLandingPage.selectGender("female");
         facebookLandingPage.clickCreateAccountButton();
-        //getDriver().findElement(By.name("websubmit")).click();
 
-        //having trouble finding the right locator for the invalid mobilenumber error message - this is not the right one
-        boolean isErrorDisplayed = getDriver().findElement(By.id("reg_error")).isDisplayed();
+        //having trouble finding the right locator for the invalid mobilenumber error message
+        //this is not the right one, I've tried so many
+        boolean isErrorDisplayed = getDriver().findElement(By.partialLinkText("valid mobile")).isDisplayed();
         Assert.assertEquals(isErrorDisplayed, true, "Invalid Mobile Number error message is NOT displayed.");
 
     }

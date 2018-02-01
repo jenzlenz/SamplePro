@@ -10,11 +10,10 @@ public class verifyIncorrectPassword extends DriverWrapper {
     public void verifyIncorrectPwd() {
 
         FacebookLandingPage facebookLandingPage = new FacebookLandingPage();
-        FacebookLoginPage facebookLoginPage = new FacebookLoginPage();
         facebookLandingPage.loginToApp("jenzlenz@gmail.com", "WrongPassword!");
 
-        boolean isMessageDisplayed = getDriver().findElement(By.xpath("//*[@id='login_link']/div[2]/a[1]")).isDisplayed();
-        Assert.assertEquals(isMessageDisplayed, true, "Recover Your Account button is NOT displayed.");
+        boolean isButtonDisplayed = getDriver().findElement(By.xpath("//*[@id='login_link']/div[2]/a[1]")).isDisplayed();
+        Assert.assertEquals(isButtonDisplayed, true, "Recover Your Account button is NOT displayed.");
         ;
     }
 }

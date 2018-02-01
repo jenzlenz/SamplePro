@@ -1,19 +1,19 @@
 package com.jennifers.automation;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static com.jennifers.automation.FacebookLoginPage.*;
 
-public class verifyINVALIDLogin extends DriverWrapper {
+public class verifyIncorrectEmail extends DriverWrapper {
     @Test
-    public void verifyInvalidLogin () {
+    public void verifyIncorrectEMAIL () {
         FacebookLandingPage landingPage = new FacebookLandingPage();
-        FacebookLoginPage loginPage = new FacebookLoginPage();
-        landingPage.loginToApp("jenzlenz@gmail.com", "Abc12345");
+        landingPage.loginToApp("incorrectemail%gmail.com", "Password");
 
-        //Assert.assertEquals(FacebookLoginPage.getRecoverAccountLinkText(), "Recover Your Account",
-        //        "Recover link text is not displayed.");
+        boolean isMessageDisplayed = getDriver().findElement(By.xpath("//*[@id=\"globalContainer\"]/div[3]/div/div/div")).isDisplayed();
+        Assert.assertEquals(isMessageDisplayed, true, "No invalid email message displayed.");
     }
 
 }
