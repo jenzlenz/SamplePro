@@ -22,7 +22,7 @@ public class Midterm {
         public static void reverseEverything(String s) {
                 System.out.print("The reverse of what you entered is: ");
                 StringBuilder stringValue = new StringBuilder();
-                // append a string into StringBuilder s
+                // append a string s into StringBuilder
                 stringValue.append(s);
                 // reverse StringBuilder input1
                 stringValue = stringValue.reverse();
