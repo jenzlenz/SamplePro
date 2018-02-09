@@ -14,6 +14,7 @@ public class DriverWrapper {
     private static final String calendar = "https://www.hotels.com/";
     private static final String autoComplete = "https://www.expedia.com/";
     private static final String mouseOver = "https://dhtmlx.com/";
+    private static final String amazon = "https://www.amazon.com/";
 
 
     public static WebDriver getDriver() {
@@ -26,7 +27,7 @@ public class DriverWrapper {
         driver = new ChromeDriver();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(url);
-        //driver.get(autocomplete);
+        driver.get(amazon);
 
 //        System.setProperty("webdriver.safari.driver", "/Users/jenniferdooley/Downloads/TechnosoftProjectDownloads/safaridriver");
 //        driver = new SafariDriver();
@@ -41,7 +42,7 @@ public class DriverWrapper {
     public void tearDown() {
         if (driver != null) {
             driver.manage().deleteAllCookies();
-            //driver.quit();
+            driver.quit();
         }
 
     }
